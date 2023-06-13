@@ -31,3 +31,17 @@ class BankAccount:
     # Return the current balance of the BankAccount.
     def check_balance(self):
         return self.balance
+
+# Working through a few examples of class working
+# Create a BankAccount object with the name "John's account" and an initial balance of 100
+account_john = BankAccount("John's account", 100)
+
+# Deposit 50 into the account
+account_john.deposit(50)
+print(account_john.check_balance())  # Outputs: 150
+
+account_mike = BankAccount("Mike's Account", 200)
+# Deposit 50 into the account
+account_mike.deposit(50)
+print(account_mike.check_balance())  # Outputs: 250
+
