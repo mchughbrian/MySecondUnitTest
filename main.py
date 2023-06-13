@@ -4,8 +4,14 @@ class BankAccount:
     # Initialize a BankAccount object with a name and an initial balance.
     # The initial balance defaults to 0.0 if not provided.
     def __init__(self, name, initial_balance=0.0):
+        #need to handle non-numeric inputs
+        if not isinstance(initial_balance, (int, float)):
+            raise ValueError("Initial balance must be a number.")
+        if initial_balance < 0:
+            raise ValueError("Initial balance cannot be negative.")
         self.name = name  # The name associated with the BankAccount
         self.balance = initial_balance  # The current balance of the BankAccount
+
 
     # Deposit the specified amount into the BankAccount.
     # If the amount is negative, raise a ValueError.
