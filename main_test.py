@@ -18,7 +18,17 @@ class TestBankAccount(unittest.TestCase):
             BankAccount("Bad Account", -100)
 
     def test_deposit(self):
-        #need to fill this in
+        # Test that depositing a positive amount increases the balance
+        self.account.deposit(50)
+        self.assertEqual(self.account.check_balance(), 150, "Failed on depositing a positive amount.")
+
+        # Test that depositing zero does not change the balance
+        self.account.deposit(0)
+        self.assertEqual(self.account.check_balance(), 150, "Failed on depositing zero.")
+
+        # Test that depositing a negative amount raises a ValueError
+        with self.assertRaises(ValueError):
+            self.account.deposit(-50)
 
     def test_withdraw(self):
         #need to fill this in
