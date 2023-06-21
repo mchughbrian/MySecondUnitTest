@@ -59,6 +59,22 @@ class TestBankAccount(unittest.TestCase):
         self.account.withdraw(50)
         self.assertEqual(self.account.check_balance(), 100, "Failed on balance check after withdrawal.")
 
+    def test_user_bankaccount_interaction(self):
+        """ Test the interaction between the User and BankAccount classes """
+
+        # Check if the User object is correctly associated with the BankAccount
+        self.assertEqual(self.account, self.account, "User-BankAccount association failed.")
+
+        # Simulate some transactions
+        self.account.deposit(500)
+        self.account.withdraw(300)
+
+        # Check if the balance is correctly updated
+        self.assertEqual(self.account.balance, 300, "BankAccount balance after transactions is incorrect.")
+
+        # Check if the user information is still correct
+        self.assertEqual(self.account.name, "Test Account", "User information is incorrect.")
+
 
 if __name__ == '__main__':
     unittest.main()
